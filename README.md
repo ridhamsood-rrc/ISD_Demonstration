@@ -12,6 +12,8 @@ Ridham Sood
 
 Module 1 - Object Oriented Programming and Unit Testing.
 Module 2 - Inheritance, Abstraction, Encapsulation and Polymorphism
+Module 3 - Design Patterns: Singleton and Decorator, Learning to apply
+these patterns.
 
 ## Demonstration
 
