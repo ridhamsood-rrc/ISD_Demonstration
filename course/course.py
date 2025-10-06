@@ -2,8 +2,10 @@ __author__ = "Ridham Sood"
 __version__ = "1.0.0"
 
 from department.department import Department
+from student.student import Student
+from abc import ABC, abstractmethod
 
-class Course:
+class Course(ABC):
     """
         Initializes a course object based upon received arguments (if valid)
 
@@ -14,7 +16,8 @@ class Course:
         credit_hours
     """
 
-    def __init__(self, name:str, department:Department, credit_hours: int):
+    def __init__(self, name:str, department:Department, credit_hours: int,
+                 capacity: int, current_enrollment: int):
         
         if len(name.strip())> 0: # Strip removes any spaces 
                                 # before and after the word
@@ -31,7 +34,19 @@ class Course:
             self.__credit_hours = credit_hours
         else:
             raise ValueError("Credit hours must be int type.")
-    
+
+        if isinstance(capacity, int):
+            # Single underscore to represent protected
+            self._capacity = capacity
+        else:
+            raise ValueError("Capacity must be numeric.")
+        
+        if isinstance(current_enrollment, int):
+            self._current_enrollment = current_enrollment
+        else:
+            raise ValueError("Current Enrollment must be numeric.")
+        
+
     @property
     def name(self) -> str:
         return self.__name
@@ -43,6 +58,19 @@ class Course:
     @property
     def credit_hours(self) -> int:
         return self.__credit_hours
+    
+    @abstractmethod
+    def enroll_student(self, student: Student) -> str:
+        """
+        Enrolls a student in a course if capacity allows.
+        
+        Args:
+            student(Student): The student to enrolled.
+
+        Returns:
+            str: Str message indicating success or failure of enrollment.
+        """
+        pass
     
     def __str__(self) -> str:
         return(f"Course: {self.__name}"

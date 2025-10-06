@@ -11,7 +11,9 @@ Ridham Sood
 ## Module
 
 Module 1 - Object Oriented Programming and Unit Testing.
+Module 2 - Inheritance, Abstraction, Encapsulation and Polymorphism
 
 ## Demonstration
 
 [use this section to list notes that may help when referring back to the demonstration.]
+NOTES about module 2
